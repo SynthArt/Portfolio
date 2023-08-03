@@ -1,0 +1,189 @@
+<html>
+<head>
+<meta name = "viewport" content = "width=device-width,initial-scale=1">
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #262626; 
+    }
+  /* Nav bar */
+    .topnav {
+        background-color: #333333;
+        overflow:hidden;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color:black;
+    }
+    .topnav a.active {
+        background-color: #04aa6d;
+        color:white;
+    }
+
+    /* hero's journey */
+    .hero-image {
+        background-image: 
+        linear-gradient(rgba(0,0,0,0.5), 
+        rgba(0,0,0,0.5)), url("images/kris-1.jpg");
+        width: 35%;
+        aspect-ratio: 4/5;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin: 2% auto;
+    }
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+    .hero-text button {
+        border: none;
+        display: inline-block;
+        font-size: 1.25vw;
+        padding: 1vw 2vw;
+        border-radius: 3vw;
+        color: black;
+        background-color: #F0ead6;
+        text-align: center;
+        cursor: pointer;
+    }
+    .hero-text button:hover {
+        background-color: #555;
+        color: white;
+    }
+    /* projects */
+    .project-section {
+        font-size: 2em;
+        margin: 2%;
+    }
+
+    .flex-container-projects {
+        display:flex;
+        margin-top: 2%;
+        align-items: center;
+        justify-items: center;
+    }
+    .flex-child {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2%;
+        background-image: 
+        linear-gradient(rgba(0,0,0,0), 
+        rgba(0,0,0,0.5)), var(--portfolio-content);
+        aspect-ratio: 4/3; /* configures size */
+        background-position: top center;
+        background-size: cover;
+    }
+
+    .flex-child:hover {
+        background-image: 
+        linear-gradient(rgba(0,0,0,0.6), 
+        rgba(0,0,0,0.6)), var(--portfolio-content);
+    }
+
+    .project-description {
+        text-align: center;
+        /** Fade-in Transition **/
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .25s, visibility .25s;
+    }
+
+    .flex-child:hover .project-description {
+        visibility: visible;
+        opacity: 1;
+    }
+    /* skills */
+    .skills {
+        margin: 4%;
+        font-size: 2.4vw;
+        text-align: center;
+        color: white;
+    }
+    /* about me */
+
+    /* contact */
+
+    /* footer */
+    .footer {
+        height: 5%;
+    }
+</style>
+</head>
+<body>
+<!-- Nav -->
+<!-- <script id = "replace_with_navbar" src="nav.js"></script> -->
+<div class = "topnav">
+    <a class = "active" href = "portfolio.html">Home</a>
+    <a class = "projects">Projects</a>
+    <a href = "mailto:SynthesizedArtistry@gmail.com?subject=Portfolio" class = "contact">Contact</a>
+    <a class = "about">About</a>
+</div>
+<script>
+    function clicked(event) {
+        console.log(event.target.className);
+        document.getElementById(event.target.className).scrollIntoView({behavior: "smooth"});
+    }
+    anchorList = document.querySelector("div.topnav").children;
+    for(let i = 0; i < anchorList.length; i++){
+        anchorList[i].addEventListener('click',clicked, false);
+    }
+</script>
+<style>
+    
+</style>
+<!-- Hero's Journey -->
+<div class = "hero-image">
+    <div class = "hero-text">
+        <h1 style = "font-size: 4vw"> Christopher Aguilar</h1>
+        <p style = "font-size: 2vw"> A Software Developer</p>
+        <button>Contact Me</button>
+    </div>
+</div>
+<!-- About me -->
+<div class = "skills"> I am a self-taught software developer who is dedicated to learning anything and everything involving development.
+    I have experience in C# bot programming, Spyder, Java, and web dev.
+</div>
+<!-- Skills -->
+<!-- skills: Java 5/5, JavaScript 3/5, Python 4/5, C# 3/5 -->
+<!-- Projects -->
+<div id = "projects" class = "project-section" >Projects:</div>
+<div class = "flex-container-projects">
+    <div class = "flex-child project1" style="--portfolio-content:url(images/portfolio-content-1.png)" onclick="window.location.href='https://synthart.github.io/GasStationTrends/';">
+    <p class = "project-description"> A Gas station application that <br> finds the cheapest gas station near you sorted by gas type. </p>
+    </div>
+    <div class = "flex-child project2" style="--portfolio-content:url(images/portfolio-content-2.png)" onclick="window.location.href='https://github.com/SynthArt/ScuffedBot';">
+    <p class = "project-description"> A discord bot that streams audio from youtube </p>
+    </div>
+    <div class = "flex-child project3" style="--portfolio-content:url(images/portfolio-content-3.png)" onclick="window.location.href='https://github.com/SynthArt/NaiveBayes_TFIDF';">
+    <p class = "project-description"> A TF-IDF implementation for Naive Bayes made from scratch </p>
+    </div>
+</div>
+
+<!-- Contact -->
+
+<!-- Footer -->
+<div class="footer"></div>
+</body>
+</html>
